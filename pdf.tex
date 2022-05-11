@@ -20,7 +20,7 @@
 % \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 % \SetMathAlphabet{\mathcal}{bold}{OMS}{cmsy}{b}{n}
 
-\usemintedstyle{borland}
+% \usemintedstyle{borland}
 
 %\parindent 0ex
 \setlength{\parindent}{4em}
@@ -63,7 +63,8 @@ Formula used to calculate $\beta_3$: \\
 \begin{equation}
     \beta_3 = dim(Ker(\partial_3)) - dim(Im(\partial_4))
 \end{equation}
-In our python file, we take the filename (.gts file) as an input from the user and process the file.
+In our python file, we take the filename (.gts file) as an input from the user and process the file. \\
+We know that $\partial_3$ and $\partial_4$ are defined as:
 \begin{equation*}
     \partial_3 : C_{3}(K) \to C_{2}(K) 
 \end{equation*}
@@ -75,11 +76,13 @@ Kernel of a matrix is nullspace of the matrix and image is columnspace of a matr
 
 \section{Steps to run the code}
 Make sure you have \ttfamily \texttt{python3 and numpy and plotly} \normalfont installed. 
-Use the command \ttfamily \texttt{pip3 install numpy plotly}  \normalfont to install them.
-After, use the command \ttfamily \texttt{python3 only.py} \normalfont to run it. Then enter the name of the of the \ttfamily \texttt{.gts} \normalfont file.
+Use the command \ttfamily \texttt{pip3 install numpy plotly}  \normalfont to install them. \\
+For best results for tetrahedron, use \ttfamily \texttt{tetra.py}.\normalfont Use \ttfamily \texttt{Tetrahedron.gts} \normalfont as your input file. \\
+For Torus and TangleCube, use the command \ttfamily \texttt{python3 only.py} \normalfont to run it. Then enter the name of the of the \ttfamily \texttt{.gts} \normalfont file.
 
 \usemintedstyle{vs}
 \section{Code}
+\href{https://github.com/harsha-deep/BCTImplementationProject/blob/main/only.py}{\textbf{only.py}}
 \begin{minted}{python}
 import time
 import numpy as np
@@ -162,12 +165,25 @@ if __name__ == '__main__':
     print("Time elapsed:", end - begin, 's')
 
 \end{minted}
+
 \subsection{Github Link} \\
 You can also visit the below link. \\
 \url{https://github.com/harsha-deep/BCTImplementationProject}
 
 \section{Note}
-The code is not complete. We are unable to calculate $\partial_3$ and $\partial_4$. 
+The code is not complete. We are unable to calculate $\partial_3$ and $\partial_4$.
+
+\section{Screenshots}
+% \begin{figure}[h]
+% \centering
+\includegraphics[scale=0.45]{img/tetrahedron_results.png} \\
+\includegraphics[scale=0.5]{img/newplot.png}
+Tetrahedron. \\
+\includegraphics[scale=0.5]{img/tangle.png}
+Tangle cube. \\
+% \caption{Figure of tetrahedron generated.}
+% \label{fig:stack}
+% \end{figure}
 
 \section{References}
 1 . \url{https://en.wikipedia.org/wiki/Simplicial_complex} \\
