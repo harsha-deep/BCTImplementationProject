@@ -1,5 +1,7 @@
 import time
 import numpy as np
+import os
+import plotly.graph_objects as go
 
 begin = time.time()
 
@@ -46,6 +48,28 @@ def open_file(file_name):
     print("vertices:", convert_float(vertices))
     print("edges:", convert_int(edges))
     print("faces:", convert_int(faces))
+
+    try:
+        os.mknod('vertices.txt')
+
+    except FileExistsError as e:
+        print(e.strerror)
+
+    with open("vertices.txt", "a") as f:
+        for lst in vertices:
+            f.write(lst[0] + ' '+lst[1] + ' ' + lst[2] + '\n')
+
+    pts = np.loadtxt(np.DataSource().open(
+        'vertices.txt'))
+
+    x, y, z = pts.T
+
+    fig = go.Figure(
+        data=[go.Mesh3d(x=x, y=y, z=z, color='cyan', opacity=0.5)])
+
+    fig.show()
+
+    os.remove('vertices.txt')
 
 
 if __name__ == '__main__':
